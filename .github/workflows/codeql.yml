@@ -2,7 +2,7 @@ name: "Code Scanning"
 
 on:
   schedule:
-    - cron: '22 9 * * *'
+    - cron: '25 9 * * *'
 
 jobs:
   analyze:
@@ -22,8 +22,6 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
-#      with:
-#        ref: develop
 
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v2

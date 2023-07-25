@@ -5,8 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: snyk/actions/node@master
+      - name: Snyk authenticaion
         run: snyk auth
+      - uses: snyk/actions/node@master
       - name: Snyk monitor
         run: |
           npm install

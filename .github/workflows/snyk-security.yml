@@ -2,15 +2,16 @@ name: Example workflow using Snyk with continue on error
 on: push
 jobs:
   security:
-    runs-on: ubuntu-latest
+    runs-on: node:latest
     steps:
       - uses: actions/checkout@master
+      - name: Install package
+        run: npm install
+    
       - uses: snyk/actions/node@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       - name: Snyk monitor
-        run: |
-          npm install
-          snyk test
+        run: snyk test
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}

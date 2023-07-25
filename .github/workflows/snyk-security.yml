@@ -6,6 +6,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - uses: snyk/actions/node@master
+        run: snyk auth
       - name: Snyk monitor
         run: |
           npm install

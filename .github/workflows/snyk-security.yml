@@ -6,9 +6,10 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       - name: Snyk monitor
         run: |
-          snyk auth
           npm install
           snyk test
         env:

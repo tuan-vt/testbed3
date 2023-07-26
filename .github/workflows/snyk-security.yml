@@ -3,6 +3,11 @@ on: push
 jobs:
   Scan-DP:
     runs-on: ubuntu-latest
+    timeout-minutes: 360
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
     steps:
       - uses: actions/checkout@master
       - uses: actions/setup-node@v3

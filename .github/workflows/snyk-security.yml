@@ -10,10 +10,10 @@ jobs:
       security-events: write
     steps:
       - uses: actions/checkout@master
-#      - uses: actions/setup-node@v3
-#        with:
-#          node-version: 16
-#      - run: npm install
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: npm install
       - uses: snyk/actions/node@master
         continue-on-error: true
         env:
